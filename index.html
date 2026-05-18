@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff4df">
+  <title>专属小贺儿</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="intro-gate" id="introGate" aria-label="打开小贺儿的专属信封">
+    <button class="envelope-stage" id="openEnvelope" type="button">
+      <span class="envelope-shadow" aria-hidden="true"></span>
+      <span class="envelope" aria-hidden="true">
+        <span class="letter-peek">
+          <span>小贺儿</span>
+          <i></i>
+        </span>
+        <span class="envelope-back"></span>
+        <span class="flap flap-left"></span>
+        <span class="flap flap-right"></span>
+        <span class="flap flap-bottom"></span>
+        <span class="flap flap-top"></span>
+        <span class="heart-seal">♥</span>
+      </span>
+      <span class="intro-title">给小贺儿的一封信</span>
+      <span class="intro-hint">轻点一下，或向上滑开</span>
+    </button>
+  </div>
+
+  <main class="site-main" id="mainContent">
+    <div class="today-ribbon" id="beijingDate" aria-live="polite">北京时间 --</div>
+
+    <section class="hero-section" aria-labelledby="dayTitle">
+      <div class="hero-visual" aria-hidden="true">
+        <span class="sun"></span>
+        <span class="cloud cloud-one"></span>
+        <span class="cloud cloud-two"></span>
+        <span class="spark spark-one">♥</span>
+        <span class="spark spark-two">✦</span>
+      </div>
+
+      <div class="day-panel">
+        <p class="eyebrow">从 2026.01.23 开始</p>
+        <h1 id="dayTitle">今天是我们认识的第 <span id="loveDays">--</span> 天</h1>
+        <p class="hero-copy">把每一天都轻轻收好，等以后一起慢慢回看。</p>
+      </div>
+    </section>
+
+    <section class="paper-card weather-card" aria-labelledby="weatherTitle">
+      <div class="section-heading">
+        <span class="section-icon" aria-hidden="true">☀</span>
+        <div>
+          <p class="eyebrow">今日西安</p>
+          <h2 id="weatherTitle">天气与专属关怀</h2>
+        </div>
+      </div>
+
+      <div class="weather-grid">
+        <div class="weather-now">
+          <p id="weatherCity">西安</p>
+          <strong id="weatherText">正在看天气...</strong>
+          <span id="weatherTemp">--°C</span>
+          <small id="weatherMeta">想把今天调成刚刚好的温柔。</small>
+        </div>
+
+        <article class="letter-card" aria-label="今日专属信笺">
+          <p class="letter-label">今日专属信笺</p>
+          <p id="aiAdvice">正在给小贺儿写今天的小提醒...</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="paper-card capsule-card" aria-labelledby="capsuleTitle">
+      <div class="section-heading">
+        <span class="section-icon" aria-hidden="true">✉</span>
+        <div>
+          <p class="eyebrow">时光胶囊</p>
+          <h2 id="capsuleTitle">今天藏起来的一句话</h2>
+        </div>
+      </div>
+
+      <div class="scratch-area" id="scratchArea">
+        <p id="loveQuote" class="quote-text"></p>
+        <canvas id="scratchCanvas" aria-label="用手指擦开情话"></canvas>
+        <div class="scratch-tip" id="scratchTip">用手指擦一擦</div>
+      </div>
+    </section>
+
+    <section class="paper-card gallery-card" aria-labelledby="galleryTitle">
+      <div class="section-heading">
+        <span class="section-icon" aria-hidden="true">♡</span>
+        <div>
+          <p class="eyebrow">甜蜜相册</p>
+          <h2 id="galleryTitle">把喜欢放进相册里</h2>
+          <p class="gallery-subtitle" id="gallerySubtitle">这是今天随机挑选的 5 张幸运照片</p>
+        </div>
+      </div>
+
+      <div class="carousel" id="carousel" aria-label="甜蜜相册轮播">
+        <button class="carousel-btn prev" id="prevPhoto" type="button" aria-label="上一张">‹</button>
+        <div class="photo-frame" id="photoFrame">
+          <div class="slide-track" id="slideTrack"></div>
+        </div>
+        <button class="carousel-btn next" id="nextPhoto" type="button" aria-label="下一张">›</button>
+      </div>
+      <div class="dots" id="photoDots" aria-label="相册指示器"></div>
+    </section>
+
+    <section class="paper-card mood-card" aria-labelledby="moodTitle">
+      <div class="section-heading">
+        <span class="section-icon" aria-hidden="true">☺</span>
+        <div>
+          <p class="eyebrow">心情记录板</p>
+          <h2 id="moodTitle">今天的小贺儿是什么心情？</h2>
+        </div>
+      </div>
+
+      <div class="mood-buttons">
+        <button class="mood-btn" type="button" data-mood="happy"><span>😊</span>开心</button>
+        <button class="mood-btn" type="button" data-mood="sad"><span>🥺</span>委屈</button>
+        <button class="mood-btn" type="button" data-mood="angry"><span>😡</span>生气</button>
+        <button class="mood-btn" type="button" data-mood="tired"><span>😴</span>好累</button>
+      </div>
+      <p class="mood-message" id="moodMessage">点一个心情，我马上来哄你。</p>
+    </section>
+
+    <section class="paper-card message-card" aria-labelledby="messageTitle">
+      <div class="section-heading">
+        <span class="section-icon" aria-hidden="true">✎</span>
+        <div>
+          <p class="eyebrow">专属留言板</p>
+          <h2 id="messageTitle">写给我的悄悄话</h2>
+        </div>
+      </div>
+
+      <p class="message-tip">你写下的每一个字，都会直接飞到我的信箱里，不用再跳去邮件 App 哦～</p>
+      <form id="messageForm">
+        <label class="sr-only" for="messageText">留言内容</label>
+        <textarea id="messageText" name="小贺儿留言" rows="6" placeholder="今天想对我说什么呀..."></textarea>
+        <button class="send-btn" type="submit">寄出这封小信</button>
+        <p class="message-status" id="messageStatus" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <footer class="page-footer">
+      <p>小贺儿的每一天，都值得被认真喜欢。</p>
+    </footer>
+  </main>
+
+  <div class="miss-widget" aria-live="polite">
+    <button id="missButton" type="button" aria-label="戳一下，想你">想你一下</button>
+    <span id="missCountText">今天小贺儿想了你 0 次</span>
+  </div>
+
+  <noscript>
+    <div class="noscript">这个小网页需要开启 JavaScript，才能显示天数、刮刮乐和小互动。</div>
+  </noscript>
+
+  <script src="./script.js"></script>
+</body>
+</html>
