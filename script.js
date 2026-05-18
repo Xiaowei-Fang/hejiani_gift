@@ -769,12 +769,15 @@ function initMessageBoard() {
           name: "小贺儿",
           message,
           time: `北京时间 ${getBeijingDateTimeText()}`,
-          page: location.href.split("#")[0]
+          _url: location.href.split("#")[0]
         })
       });
       const result = await response.json().catch(() => ({}));
 
-      if (!response.ok) throw new Error("message request failed");
+      if (!response.ok || result.success === false || result.success === "false") {
+        throw new Error(result.message || `message request failed: ${response.status}`);
+      }
+
 
       textarea.value = "";
       status.textContent = result.message?.includes("activate")
@@ -782,7 +785,9 @@ function initMessageBoard() {
         : "已经寄出啦，我会在邮箱里收到这封小信。";
     } catch (error) {
       console.warn("留言发送失败。", error);
-      status.textContent = "这次没有寄成功，可能是网络或收件服务还没确认邮箱。稍后再试一下。";
+      status.textContent = error.message
+        ? `这次没有寄成功：${error.message}`
+        : "这次没有寄成功，可能是网络或收件服务还没确认邮箱。稍后再试一下。";
       status.classList.add("is-error");
     } finally {
       submitButton.disabled = false;
